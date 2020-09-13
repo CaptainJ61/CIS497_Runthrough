@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 00000000000000000000000000000000
+  productGUID: 2b7a95ab882aa2343bf2a16d0c2a1922
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -630,7 +630,7 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   cloudProjectId: df554a3e-a37a-48f0-9cc2-eb6eb70f3475
   framebufferDepthMemorylessMode: 0
-  projectName: 
+  projectName: Prototype2
   organizationId: difigliojimmy
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
