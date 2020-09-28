@@ -1,7 +1,7 @@
 ﻿/*
  * James Difiglio
  * Prototype3
- * Controls player jumping
+ * Controls audio, animation, and jumping
  * 
  */
 using System.Collections;
@@ -17,10 +17,26 @@ public class PlayerController : MonoBehaviour
 
     public bool isOnGround = true;
     public bool gameOver = false;
+
+    public Animator playerAnimator;
+
+    public ParticleSystem explosionParticle;
+    public ParticleSystem dirt;
+
+    public AudioClip crash;
+    public AudioClip jump;
+    private AudioSource player;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        playerAnimator = GetComponent<Animator>();
+
+        playerAnimator.SetFloat("Speed_f", 1.0f);
+
+        player = GetComponent<AudioSource>();
 
         forceMode = ForceMode.Impulse;
 
@@ -28,6 +44,7 @@ public class PlayerController : MonoBehaviour
         {
             Physics.gravity *= gravityModifier;
         }
+
         
 
     }
@@ -39,6 +56,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, forceMode);
             isOnGround = false;
+
+            playerAnimator.SetTrigger("Jump_trig");
+
+            dirt.Stop();
+            player.PlayOneShot(jump, 1.0f);
+            
         }
     }
 
@@ -47,11 +70,18 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground") && !gameOver)
         {
             isOnGround = true;
+            dirt.Play();
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log(gameOver);
             gameOver = true;
+
+            playerAnimator.SetBool("Death_b", true);
+            playerAnimator.SetInteger("DeathType_int", 1);
+
+            explosionParticle.Play();
+            player.PlayOneShot(crash, 1.0f);
         }
     }
 }
