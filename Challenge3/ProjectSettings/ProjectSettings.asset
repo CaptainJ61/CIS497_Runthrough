@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 00000000000000000000000000000000
+  productGUID: 8c4927cf062603349b7a7c970e4ccedd
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -630,7 +630,7 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   cloudProjectId: 66e901cd-abcc-4e8d-ac8b-53b1a5bf388a
   framebufferDepthMemorylessMode: 0
-  projectName: 
+  projectName: Challenge3
   organizationId: difigliojimmy
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
